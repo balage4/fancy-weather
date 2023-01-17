@@ -1,0 +1,33 @@
+{
+  "name": "react2023-bognarbalazs",
+  "version": "1.0.0",
+  "description": "**Készíts egy időjárás applikációt, ami megmutatja a pillanatnyi és a következő 16 nap időjárását az OpenWeatherMap ingyenes API-ja alapján.** - API kulcs: c3189249f4afdf526538f6f3f81e3750 - Jelenlegi időjárás: https://openweathermap.org/current -\tElőrejelzés: https://openweathermap.org/forecast16",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paltamas/react2023-bognarbalazs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paltamas/react2023-bognarbalazs/issues"
+  },
+  "homepage": "https://github.com/paltamas/react2023-bognarbalazs#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "@vitejs/plugin-react": "^3.0.0",
+    "vite": "^4.0.0"
+  }
+}
