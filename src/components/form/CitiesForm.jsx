@@ -4,22 +4,17 @@ import Button from 'react-bootstrap/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCities } from '../../Store/features/citiesStore';
 import CityField from './CityField';
+import setFormInitial from '../../utilities/setFormInitial';
 
 const CitiesForm = () => {
   const dispatch = useDispatch();
-
-  const setInitialValues = () => {
-    const storageValues = useSelector((state) => state.cities.value);
-    if (!storageValues.length) return [{ name: '' }];
-    return storageValues;
-  };
 
   const handleUpdateCities = (values) => {
     dispatch(setCities(values.cityNamesArray));
   };
 
   const initialValues = {
-    cityNamesArray: setInitialValues(),
+    cityNamesArray: setFormInitial(),
   };
 
   return (
