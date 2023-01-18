@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import CitiesForm from '../components/form/CitiesForm';
 

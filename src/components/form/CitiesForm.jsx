@@ -1,21 +1,11 @@
 import { Formik, Form, FieldArray } from 'formik';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
-import { useDispatch, useSelector } from 'react-redux';
-import { setCities } from '../../Store/features/citiesStore';
 import CityField from './CityField';
 import setFormInitial from '../../utilities/setFormInitial';
+import handleUpdateCities from '../../utilities/handleUpdateCities';
 
 const CitiesForm = () => {
-  const dispatch = useDispatch();
-
-  const handleUpdateCities = (values) => {
-    const cleanedCities = values.cityNamesArray.filter(
-      (nameObject) => nameObject.name !== ''
-    );
-    dispatch(setCities(cleanedCities));
-  };
-
   const initialValues = {
     cityNamesArray: setFormInitial(),
   };
