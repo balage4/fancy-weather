@@ -10,7 +10,10 @@ const CitiesForm = () => {
   const dispatch = useDispatch();
 
   const handleUpdateCities = (values) => {
-    dispatch(setCities(values.cityNamesArray));
+    const cleanedCities = values.cityNamesArray.filter(
+      (nameObject) => nameObject.name !== ''
+    );
+    dispatch(setCities(cleanedCities));
   };
 
   const initialValues = {
