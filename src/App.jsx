@@ -1,8 +1,13 @@
-import { useState } from 'react';
-import './App.css';
+import Layout from '../components/layout/Layout';
+import RoutesMapping from '../components/navigation/RoutesMapping';
+import './App.scss';
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <Layout>
+      <RoutesMapping />
+    </Layout>
+  );
 }
 
 export default App;
