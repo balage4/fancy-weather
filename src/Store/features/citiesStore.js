@@ -14,8 +14,8 @@ export const citiesSlice = createSlice({
   },
   reducers: {
     setCities: (state, updatedCities) => {
-      localStorage.setItem('citiesForecast', JSON.stringify(updatedCities.payload))
-      state.value = updatedCities.payload
+      localStorage.setItem('citiesForecast', JSON.stringify(updatedCities.payload));
+      state.value = updatedCities.payload;
     }
   },
 });
