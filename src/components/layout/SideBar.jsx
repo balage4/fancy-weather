@@ -1,15 +1,17 @@
-import { Container } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 const Sidebar = () => {
-  const cities = useSelector((state) => state.cities.value);
+  const citiesStore = useSelector((state) => state.cities.value);
 
   return (
-    <Container>
-      {cities.map((city, index) => (
-        <p key={`sidebarList_${index}`}>{city.name}</p>
+    <>
+      {citiesStore.map((city, index) => (
+        <Nav.Link key={`sidebarList_${index}`} href={`/city/${city.name}`}>
+          {city.name}
+        </Nav.Link>
       ))}
-    </Container>
+    </>
   );
 };
 

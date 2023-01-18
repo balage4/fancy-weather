@@ -15,7 +15,6 @@ const CitiesForm = () => {
       enableReinitialize={true}
       onSubmit={(values, { resetForm }) => {
         handleUpdateCities(values, dispatch);
-
         resetForm();
       }}>
       {({ values }) => (
