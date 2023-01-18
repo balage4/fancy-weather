@@ -3,7 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Navigation from '../navigation/Navigation';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, sidebar }) => {
   const styles = {
     mainContainer: {
       height: window.innerHeight,
@@ -21,8 +21,8 @@ const Layout = ({ children }) => {
       <Navigation />
       <Container>
         <Row>
-          <Col sm={styles.contentAreaRatio.col1}>1</Col>
-          <Col sm={styles.contentAreaRatio.col2}>2</Col>
+          <Col sm={styles.contentAreaRatio.col1}>{children}</Col>
+          <Col sm={styles.contentAreaRatio.col2}>{sidebar}</Col>
         </Row>
       </Container>
     </Container>
