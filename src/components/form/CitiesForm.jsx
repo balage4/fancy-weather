@@ -1,4 +1,6 @@
-import { Formik, Field, Form, ErrorMessage, FieldArray } from 'formik';
+import { Formik, Form, FieldArray } from 'formik';
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCities } from '../../Store/features/citiesStore';
 import CityField from './CityField';
@@ -31,7 +33,7 @@ const CitiesForm = () => {
         <Form>
           <FieldArray name="cityNamesArray">
             {({ remove, push }) => (
-              <div>
+              <Container>
                 {values.cityNamesArray.length > 0 &&
                   values.cityNamesArray.map((cityName, index) => (
                     <CityField
@@ -40,17 +42,19 @@ const CitiesForm = () => {
                       remove={remove}
                     />
                   ))}
-                <button
+                <Button
                   type="button"
                   disabled={values.cityNamesArray.length >= 10}
-                  className="secondary"
+                  variant="info"
                   onClick={() => push({ name: '' })}>
                   Add City
-                </button>
-              </div>
+                </Button>
+              </Container>
             )}
           </FieldArray>
-          <button type="submit">Save cities</button>
+          <Button variant="primary" type="submit">
+            Save cities
+          </Button>
         </Form>
       )}
     </Formik>
