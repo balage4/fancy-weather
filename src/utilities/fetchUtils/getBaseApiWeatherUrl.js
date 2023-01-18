@@ -6,6 +6,6 @@ const {
   VITE_WEATHER_API_HOST,
 } = env;
 
-const getBaseApiWeatherUrl = (cityName) => `${VITE_WEATHER_API_PROTOCOL}://${VITE_WEATHER_API_HOST}?q=${cityName}&appid=${VITE_WEATHER_API_KEY}`;
+const getBaseApiWeatherUrl = (cityName) => `${VITE_WEATHER_API_PROTOCOL}://${VITE_WEATHER_API_HOST}?q=${cityName}&appid=${VITE_WEATHER_API_KEY}aaa`;
 
 export default getBaseApiWeatherUrl;
