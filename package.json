@@ -21,8 +21,16 @@
   },
   "homepage": "https://github.com/paltamas/react2023-bognarbalazs#readme",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.1",
+    "dotenv": "^16.0.3",
+    "formik": "^2.2.9",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-bootstrap": "^2.7.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.6.2",
+    "sass": "^1.57.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
