@@ -16,7 +16,6 @@ const CitiesForm = () => {
 
   const handleUpdateCities = (values) => {
     dispatch(setCities(values.cityNamesArray));
-    console.log(values);
   };
 
   const initialValues = {
