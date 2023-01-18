@@ -3,9 +3,12 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import CityField from './CityField';
 import setFormInitial from '../../utilities/setFormInitial';
+import { useDispatch } from 'react-redux';
 import handleUpdateCities from '../../utilities/handleUpdateCities';
 
 const CitiesForm = () => {
+  const dispatch = useDispatch();
+
   const initialValues = {
     cityNamesArray: setFormInitial(),
   };
@@ -13,9 +16,11 @@ const CitiesForm = () => {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values, { resetForm }) =>
-        handleUpdateCities(values, resetForm)
-      }>
+      enableReinitialize={true}
+      onSubmit={(values, { resetForm }) => {
+        handleUpdateCities(values, dispatch);
+        resetForm();
+      }}>
       {({ values }) => (
         <Form>
           <FieldArray name="cityNamesArray">

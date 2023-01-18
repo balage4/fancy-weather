@@ -1,7 +1,6 @@
-import { useDispatch } from "react-redux";
+import { setCities } from '../Store/features/citiesStore';
 
-const handleUpdateCities = (values) => {
-  const dispatch = useDispatch();
+const handleUpdateCities = (values, dispatch) => {
   const cleanedCities = values.cityNamesArray.filter(
     (nameObject) => nameObject.name !== ''
   );
