@@ -9,16 +9,13 @@ import handleUpdateCities from '../../utilities/handleUpdateCities';
 const CitiesForm = () => {
   const dispatch = useDispatch();
 
-  const initialValues = {
-    cityNamesArray: setFormInitial(),
-  };
-
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={setFormInitial()}
       enableReinitialize={true}
       onSubmit={(values, { resetForm }) => {
         handleUpdateCities(values, dispatch);
+
         resetForm();
       }}>
       {({ values }) => (
