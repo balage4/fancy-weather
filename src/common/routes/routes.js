@@ -14,6 +14,12 @@ const routes = [
     element: Home,
     topMenu: true
   },
+  {
+    path: '*',
+    name: 'Home',
+    element: Home,
+    topMenu: false
+  },
 
 ];
 
