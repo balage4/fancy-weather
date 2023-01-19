@@ -9,7 +9,7 @@ const routes = [
     topMenu: false
   },
   {
-    path: '*',
+    path: '/',
     name: 'Home',
     element: Home,
     topMenu: true
