@@ -16,7 +16,6 @@ export default class CityWeather {
   }
 
   getWindSpeed() {
-    const kmhExchange = 3.6;
     return roundToFloat(Number(this.data.wind.speed) * 3.6);
   }
 
