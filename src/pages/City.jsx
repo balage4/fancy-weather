@@ -1,21 +1,16 @@
-import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import { useParams } from 'react-router-dom';
 import { useEffect, useReducer } from 'react';
-import getBaseApiWeatherUrl from '../utilities/fetchUtils/getBaseApiWeatherUrl';
+import apiUrl from '../utilities/fetchUtils/getBaseApiWeatherUrl';
 import fetchWeather from '../utilities/fetchUtils/fetchWeather';
 import weatherReducer from '../common/reducers/fetchReducer';
 import errorMessages from '../common/messages/errorMessages';
+import CityWeatherCard from '../components/current/CityWeatherCard';
+import fetchInitialState from '../common/reducers/initialState';
 
 const City = () => {
   const { cityname } = useParams();
-  const baseApiURl = getBaseApiWeatherUrl(cityname);
-
-  const fetchInitialState = {
-    loading: true,
-    data: null,
-    error: false,
-  };
+  const baseApiURl = apiUrl.baseApiUrl(cityname);
 
   const [state, dispatch] = useReducer(weatherReducer, fetchInitialState);
 
@@ -32,10 +27,7 @@ const City = () => {
       {state.loading ? (
         <p>loading...</p>
       ) : (
-        <Card
-          style={{
-            width: '18rem',
-          }}>{`Current weather for ${JSON.stringify(state.data)}`}</Card>
+        <CityWeatherCard data={state.data} />
       )}
       {state.error && <p>{JSON.stringify(state.data)}</p>}
     </Container>
