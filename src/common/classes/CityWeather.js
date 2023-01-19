@@ -1,4 +1,4 @@
-import apiURl from "../../utilities/fetchUtils/getBaseApiWeatherUrl";
+import apiUrl from "../../utilities/fetchUtils/apiUrl";
 import roundToFloat from "../../utilities/roundToFloat";
 import twoDigits from "../../utilities/twoDigits";
 
@@ -35,7 +35,7 @@ export default class CityWeather {
     return `${twoDigits(d.getHours())}:${twoDigits(d.getMinutes())}`;
   }
   getWeatherIconUrl() {
-    return `${apiURl.baseIconUrl}/${this.data.weather[0].icon}@2x.png`
+    return `${apiUrl.baseIconUrl}/${this.data.weather[0].icon}@2x.png`
   }
 
   getAllWeatherData() {

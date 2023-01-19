@@ -5,7 +5,7 @@ const WindDirection = ({ deg }) => (
     width="24"
     height="24"
     fill="currentColor"
-    class="bi bi-arrow-up"
+    className="bi bi-arrow-up"
     viewBox="0 0 16 16">
     <path
       fill-rule="evenodd"

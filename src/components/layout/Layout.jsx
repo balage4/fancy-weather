@@ -15,7 +15,7 @@ const Layout = ({ children, sidebar }) => {
     <Container className="main-container" fluid>
       <Navigation />
       <Container>
-        <Row>
+        <Row style={{ height: window.innerHeight }}>
           <Col sm={styles.contentAreaRatio.col1}>{children}</Col>
           <Col sm={styles.contentAreaRatio.col2}>{sidebar}</Col>
         </Row>

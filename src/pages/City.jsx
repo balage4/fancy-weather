@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import { useParams } from 'react-router-dom';
 import { useEffect, useReducer } from 'react';
-import apiUrl from '../utilities/fetchUtils/getBaseApiWeatherUrl';
+import apiUrl from '../utilities/fetchUtils/apiUrl';
 import fetchWeather from '../utilities/fetchUtils/fetchWeather';
 import weatherReducer from '../common/reducers/fetchReducer';
 import errorMessages from '../common/messages/errorMessages';
@@ -10,7 +10,7 @@ import fetchInitialState from '../common/reducers/initialState';
 
 const City = () => {
   const { cityname } = useParams();
-  const baseApiURl = apiUrl.baseApiUrl(cityname);
+  const baseApiURl = apiUrl.currentWeatherUrl(cityname);
 
   const [state, dispatch] = useReducer(weatherReducer, fetchInitialState);
 
