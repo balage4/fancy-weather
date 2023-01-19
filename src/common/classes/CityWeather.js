@@ -25,8 +25,9 @@ export default class CityWeather {
   getWeatherString() {
     return `${this.data.weather[0].main}, ${this.data.weather[0].description}`
   }
-  getCurrentTime() {
-    const d = new Date();
+  getLocalTime() {
+    const d = new Date()
+    d.setMinutes(d.getMinutes() + (this.data.timezone / 60) + d.getTimezoneOffset())
     return `${twoDigits(d.getHours())}:${twoDigits(d.getMinutes())}`;
   }
   getWeatherIconUrl() {

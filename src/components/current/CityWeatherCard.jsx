@@ -10,9 +10,9 @@ import {
 } from 'mdb-react-ui-kit';
 import CityWeather from '../../common/classes/CityWeather';
 
-const CityWeatherCard=({ data })=> {
-
+const CityWeatherCard = ({ data }) => {
   const cityWeather = new CityWeather(data);
+  console.log(data);
 
   return (
     <MDBContainer className="h-100">
@@ -25,7 +25,7 @@ const CityWeatherCard=({ data })=> {
                   {data.name}
                 </MDBTypography>
                 <MDBTypography tag="h6">
-                  {cityWeather.getCurrentTime()}
+                  Local time: {cityWeather.getLocalTime()}
                 </MDBTypography>
               </div>
 
@@ -81,6 +81,6 @@ const CityWeatherCard=({ data })=> {
       </MDBRow>
     </MDBContainer>
   );
-}
+};
 
 export default CityWeatherCard;
