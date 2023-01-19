@@ -9,16 +9,17 @@ import {
   MDBTypography,
 } from 'mdb-react-ui-kit';
 import CityWeather from '../../common/classes/CityWeather';
+import WindDirection from './WindDirection';
 
 const CityWeatherCard = ({ data }) => {
   const cityWeather = new CityWeather(data).getAllWeatherData();
   console.log(data);
 
   return (
-    <MDBContainer className="h-100">
+    <MDBContainer>
       <MDBRow className="justify-content-center align-items-center h-100">
-        <MDBCol md="6" lg="8" xl="4">
-          <MDBCard style={{ color: '#4B515D', borderRadius: '35px' }}>
+        <MDBCol>
+          <MDBCard style={{ color: '#4B515D', borderRadius: '10px' }}>
             <MDBCardBody className="p-4">
               <div className="d-flex">
                 <MDBTypography tag="h6" className="flex-grow-1">
@@ -49,7 +50,10 @@ const CityWeatherCard = ({ data }) => {
                       icon="wind fa-fw"
                       style={{ color: '#868B94' }}
                     />{' '}
-                    <span className="ms-1"> {cityWeather.windSpeed} km/h</span>
+                    <span className="ms-1">
+                      Wind speed: {cityWeather.windSpeed} km/h{' '}
+                      {<WindDirection deg={cityWeather.windDirection} />}
+                    </span>
                   </div>
                   <div>
                     <MDBIcon
@@ -57,7 +61,9 @@ const CityWeatherCard = ({ data }) => {
                       icon="tint fa-fw"
                       style={{ color: '#868B94' }}
                     />{' '}
-                    <span className="ms-1">{cityWeather.humidity}%</span>
+                    <span className="ms-1">
+                      Humidity: {cityWeather.humidity}%
+                    </span>
                   </div>
 
                   <div>
@@ -66,7 +72,9 @@ const CityWeatherCard = ({ data }) => {
                       icon="sun fa-fw"
                       style={{ color: '#868B94' }}
                     />{' '}
-                    <span className="ms-1"> 0.2h </span>
+                    <span className="ms-1">
+                      {/*  <WindDirection deg={cityWeather.windDirection} /> */}
+                    </span>
                   </div>
                 </div>
                 <div>

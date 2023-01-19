@@ -5,19 +5,14 @@ import Navigation from '../navigation/Navigation';
 
 const Layout = ({ children, sidebar }) => {
   const styles = {
-    mainContainer: {
-      height: window.innerHeight,
-      width: innerWidth,
-      backgroundColor: 'beige',
-    },
     contentAreaRatio: {
-      col1: 8,
-      col2: 4,
+      col1: 9,
+      col2: 3,
     },
   };
 
   return (
-    <Container style={styles.mainContainer}>
+    <Container className="main-container" fluid>
       <Navigation />
       <Container>
         <Row>

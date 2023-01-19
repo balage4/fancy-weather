@@ -4,7 +4,7 @@ import twoDigits from "../../utilities/twoDigits";
 
 export default class CityWeather {
 
-  rawData;
+  data;
 
   constructor(rawData) {
     this.data = rawData;
@@ -19,6 +19,11 @@ export default class CityWeather {
     const kmhExchange = 3.6;
     return roundToFloat(Number(this.data.wind.speed) * 3.6);
   }
+
+  getWindDirection() {
+    return Number(this.data.wind.deg);
+  }
+
   getHumidity() {
     return this.data.main.humidity;
   }
@@ -33,12 +38,14 @@ export default class CityWeather {
   getWeatherIconUrl() {
     return `${apiURl.baseIconUrl}/${this.data.weather[0].icon}@2x.png`
   }
+
   getAllWeatherData() {
     return {
       temperature: this.getTemperature(),
       windSpeed: this.getWindSpeed(),
+      windDirection: this.getWindDirection(),
       humidity: this.getHumidity(),
-      weatherString: this.getWeatherIconUrl(),
+      weatherString: this.getWeatherString(),
       localTimeString: this.getLocalTime(),
       weatherIconUrl: this.getWeatherIconUrl(),
     }
