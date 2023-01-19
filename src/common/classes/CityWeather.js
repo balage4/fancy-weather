@@ -33,4 +33,14 @@ export default class CityWeather {
   getWeatherIconUrl() {
     return `${apiURl.baseIconUrl}/${this.data.weather[0].icon}@2x.png`
   }
+  getAllWeatherData() {
+    return {
+      temperature: this.getTemperature(),
+      windSpeed: this.getWindSpeed(),
+      humidity: this.getHumidity(),
+      weatherString: this.getWeatherIconUrl(),
+      localTimeString: this.getLocalTime(),
+      weatherIconUrl: this.getWeatherIconUrl(),
+    }
+  }
 }

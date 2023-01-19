@@ -11,7 +11,7 @@ import {
 import CityWeather from '../../common/classes/CityWeather';
 
 const CityWeatherCard = ({ data }) => {
-  const cityWeather = new CityWeather(data);
+  const cityWeather = new CityWeather(data).getAllWeatherData();
   console.log(data);
 
   return (
@@ -25,7 +25,7 @@ const CityWeatherCard = ({ data }) => {
                   {data.name}
                 </MDBTypography>
                 <MDBTypography tag="h6">
-                  Local time: {cityWeather.getLocalTime()}
+                  Local time: {cityWeather.localTimeString}
                 </MDBTypography>
               </div>
 
@@ -34,10 +34,10 @@ const CityWeatherCard = ({ data }) => {
                   tag="h6"
                   className="display-4 mb-0 font-weight-bold"
                   style={{ color: '#1C2331' }}>
-                  {`${cityWeather.getTemperature()} °C`}
+                  {`${cityWeather.temperature} °C`}
                 </MDBTypography>
                 <span className="small" style={{ color: '#868B94' }}>
-                  {`${cityWeather.getWeatherString()}`}
+                  {`${cityWeather.weatherString}`}
                 </span>
               </div>
 
@@ -49,10 +49,7 @@ const CityWeatherCard = ({ data }) => {
                       icon="wind fa-fw"
                       style={{ color: '#868B94' }}
                     />{' '}
-                    <span className="ms-1">
-                      {' '}
-                      {cityWeather.getWindSpeed()} km/h
-                    </span>
+                    <span className="ms-1"> {cityWeather.windSpeed} km/h</span>
                   </div>
                   <div>
                     <MDBIcon
@@ -60,8 +57,9 @@ const CityWeatherCard = ({ data }) => {
                       icon="tint fa-fw"
                       style={{ color: '#868B94' }}
                     />{' '}
-                    <span className="ms-1">{cityWeather.getHumidity()}%</span>
+                    <span className="ms-1">{cityWeather.humidity}%</span>
                   </div>
+
                   <div>
                     <MDBIcon
                       fas
@@ -72,7 +70,7 @@ const CityWeatherCard = ({ data }) => {
                   </div>
                 </div>
                 <div>
-                  <img src={cityWeather.getWeatherIconUrl()} />
+                  <img src={cityWeather.weatherIconUrl} />
                 </div>
               </div>
             </MDBCardBody>
