@@ -25,7 +25,6 @@ const City = () => {
   );
 
   const handleResponses = async (responseArray) => {
-    console.log(responseArray[1]);
     weatherDispatch({ type: 'success', payload: responseArray[0] });
     forecastDispatch({ type: 'success', payload: responseArray[1] });
   };
