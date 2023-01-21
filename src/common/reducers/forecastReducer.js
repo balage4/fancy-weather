@@ -1,4 +1,4 @@
-const weatherReducer = (state, action) => {
+const forecastReducer = (state, action) => {
   switch (action.type) {
     case 'success':
       return { loading: false, data: action.payload, error: false };
@@ -13,4 +13,4 @@ const weatherReducer = (state, action) => {
   }
 };
 
-export default weatherReducer;
+export default forecastReducer;
