@@ -13,7 +13,6 @@ import WindDirection from './WindDirection';
 
 const CityWeatherCard = ({ data }) => {
   const cityWeather = new CityWeather(data).getAllWeatherData();
-  console.log(data);
 
   return (
     <MDBContainer>
