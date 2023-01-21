@@ -17,12 +17,11 @@ const addLangQuery = (lang) => {
   return '';
 }
 
-const WEATHER_BASE_API = `${VITE_WEATHER_API_PROTOCOL}://${VITE_WEATHER_API_API}.${VITE_WEATHER_API_HOST}`;
-
-
+const BASE_API = `${VITE_WEATHER_API_PROTOCOL}://${VITE_WEATHER_API_API}.${VITE_WEATHER_API_HOST}`;
 const baseIconUrl = `${VITE_WEATHER_API_PROTOCOL}://${VITE_WEATHER_API_HOST}/${VITE_WEATHER_API_ICON_ROUTE}`;
-const getWeatherUrl = (cityName) => `${WEATHER_BASE_API}/${VITE_WEATHER_API_WEATHER_ROUTE}?q=${cityName}${addLangQuery(lang)}&appid=${VITE_WEATHER_API_KEY}`;
-const getForecastUrl = (cityName) => `${WEATHER_BASE_API}/${VITE_WEATHER_API_FORECAST_ROUTE}?q=${cityName}&appid=${VITE_WEATHER_API_KEY}`;
+
+const getWeatherUrl = (cityName) => `${BASE_API}/${VITE_WEATHER_API_WEATHER_ROUTE}?q=${cityName}${addLangQuery(lang)}&appid=${VITE_WEATHER_API_KEY}`;
+const getForecastUrl = (cityName) => `${BASE_API}/${VITE_WEATHER_API_FORECAST_ROUTE}?q=${cityName}&appid=${VITE_WEATHER_API_KEY}`;
 
 const apiUrl = {
   baseIconUrl,

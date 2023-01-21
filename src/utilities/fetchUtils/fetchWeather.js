@@ -1,9 +1,9 @@
-import errorMessages from "../../common/messages/errorMessages";
-import throwStatusError from "./throwStatusError";
+import throwStatusError from './throwStatusError';
+import errorMessages from '../../common/messages/errorMessages';
 
 const fetchWeather = async (weatherUrl) => {
   const weatherResponse = await fetch(weatherUrl);
-  // throwStatusError(weatherResponse.status, import.meta.env.DEV ? weatherResponse.message : errorMessages.fetchError)
+  throwStatusError(weatherResponse.status, weatherResponse.message || errorMessages.fetchError);
   return weatherResponse.json();
 }
 
