@@ -17,19 +17,19 @@ const City = () => {
   useEffect(() => {
     fetchWeather(baseApiURl)
       .then((res) => dispatch({ type: 'success', payload: res }))
-      .catch((err) =>
-        dispatch({ type: 'error', payload: err || errorMessages.fetchError })
-      );
+      .catch((err) => {
+        dispatch({
+          type: 'error',
+          payload: errorMessages.fetchError,
+        });
+      });
   }, []);
 
   return (
     <Container>
-      {state.loading ? (
-        <p>loading...</p>
-      ) : (
-        <CityWeatherCard data={state.data} />
-      )}
-      {state.error && <p>{JSON.stringify(state.data)}</p>}
+      {state.error && <p>{state.data}</p>}
+      {state.loading && <p>loading...</p>}
+      {!state.loading && !state.error && <CityWeatherCard data={state.data} />}
     </Container>
   );
 };
