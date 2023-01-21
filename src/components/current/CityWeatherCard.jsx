@@ -11,8 +11,8 @@ import {
 import CityWeather from '../../common/classes/CityWeather';
 import WindDirection from './WindDirection';
 
-const CityWeatherCard = ({ data }) => {
-  const cityWeather = new CityWeather(data).getAllWeatherData();
+const CityWeatherCard = ({ weatherData }) => {
+  const cityWeather = new CityWeather(weatherData).getAllWeatherData();
 
   return (
     <MDBContainer>
@@ -22,7 +22,7 @@ const CityWeatherCard = ({ data }) => {
             <MDBCardBody className="p-4">
               <div className="d-flex">
                 <MDBTypography tag="h6" className="flex-grow-1">
-                  {data.name}
+                  {weatherData.name}
                 </MDBTypography>
                 <MDBTypography tag="h6">
                   Local time: {cityWeather.localTimeString}
