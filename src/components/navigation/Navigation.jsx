@@ -5,7 +5,7 @@ const Navigation = () => {
   return (
     <Navbar bg="light" expand="lg" sticky="top">
       <Container>
-        <Navbar.Brand href="#home">Weather-Forecast</Navbar.Brand>
+        <Navbar.Brand href="/">Weather-Forecast</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
