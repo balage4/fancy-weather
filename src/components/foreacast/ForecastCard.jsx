@@ -1,24 +1,23 @@
 import { Container, Row, Col } from 'react-bootstrap';
-import { useState } from 'react';
 import TemperatureChart from './TemperatureChart';
 import CityForecast from '../../common/classes/CityForecast';
+import ForecastTable from './ForecastTable';
 
 const ForecastCard = ({ forecastData }) => {
   const forecast = new CityForecast(forecastData).getForecast();
-
   return (
     <Container fluid>
       <Row>
-        {
-          <Col>
-            {forecast && (
-              <TemperatureChart temperaturesData={forecast.temperatures} />
-            )}
-          </Col>
-        }
+        <Col>
+          {forecast && (
+            <TemperatureChart temperaturesData={forecast.temperatures} />
+          )}
+        </Col>
       </Row>
       <Row>
-        <Col>Daily</Col>
+        <Col>
+          <ForecastTable />
+        </Col>
       </Row>
     </Container>
   );
