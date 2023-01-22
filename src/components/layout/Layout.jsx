@@ -6,8 +6,8 @@ import Navigation from '../navigation/Navigation';
 const Layout = ({ children, sidebar }) => {
   const styles = {
     contentAreaRatio: {
-      col1: 9,
-      col2: 3,
+      col1: 10,
+      col2: 2,
     },
   };
 
