@@ -28,6 +28,9 @@ const CityWeatherCard = ({ weatherData }) => {
                   Local time: {cityWeather.localTimeString}
                 </MDBTypography>
               </div>
+              <div className="d-flex justify-content-end">
+                <img src={cityWeather.countryIconUrl} alt="" />
+              </div>
 
               <div className="d-flex flex-column text-center mt-5 mb-4">
                 <MDBTypography

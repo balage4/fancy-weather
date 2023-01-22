@@ -37,6 +37,10 @@ export default class CityWeather {
     return `${apiUrl.baseIconUrl}/${this.data.weather[0].icon}@2x.png`
   }
 
+  getCountryIconUrl() {
+    return `${apiUrl.flagIconUrl(this.data.sys.country)}.png`;
+  }
+
   getAllWeatherData() {
     return {
       temperature: this.getTemperature(),
@@ -46,6 +50,7 @@ export default class CityWeather {
       weatherString: this.getWeatherString(),
       localTimeString: this.getLocalTime(),
       weatherIconUrl: this.getWeatherIconUrl(),
+      countryIconUrl: this.getCountryIconUrl()
     }
   }
 }
