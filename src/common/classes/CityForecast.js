@@ -1,5 +1,6 @@
 import roundToFloat from "../../utilities/roundToFloat";
 import twoDigits from "../../utilities/twoDigits";
+import months from "../date/months";
 
 export default class CityForecast {
 
@@ -11,11 +12,9 @@ export default class CityForecast {
 
   getTemperaturesForecast() {
     const kelvinLevel = 273.15;
-    const d = new Date();
-    const dayLiteral = (dayIndex) => `${twoDigits(d.getDate() + dayIndex)}`;
 
     return this.data.list.map((day, dayIndex) => ({
-      name: dayLiteral(dayIndex + 1),
+      name: this.getForecastDateOfMonth(dayIndex),
       minTemp: roundToFloat(Number(day.temp.min - kelvinLevel)),
       maxTemp: roundToFloat(Number(day.temp.max - kelvinLevel)),
     }));
@@ -27,4 +26,11 @@ export default class CityForecast {
     }
   }
 
+  getForecastDateOfMonth(dayCount) {
+    const date = new Date();
+    const countedDate = new Date(date.setDate(date.getDate() + dayCount));
+
+    const month = months[countedDate.getMonth()];
+    return `${month} ${countedDate.getDate()}.`;
+  }
 }
