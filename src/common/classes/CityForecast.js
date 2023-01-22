@@ -43,7 +43,7 @@ export default class CityForecast {
   }
 
   getMonthAndDateLiteral({ month, countedDate }) {
-    return `${month} ${countedDate}.`
+    return `${countedDate} ${month}`
   }
 
 }
