@@ -1,18 +1,9 @@
-import { Nav } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import ListOfCities from '../sidebar/ListOfCities';
 
 const Sidebar = () => {
   const citiesStore = useSelector((state) => state.cities.value);
-
-  return (
-    <>
-      {citiesStore.map((city, index) => (
-        <Nav.Link key={`sidebarList_${index}`} href={`/city/${city.name}`}>
-          {city.name}
-        </Nav.Link>
-      ))}
-    </>
-  );
+  return <>{citiesStore && <ListOfCities cities={citiesStore} />}</>;
 };
 
 export default Sidebar;
