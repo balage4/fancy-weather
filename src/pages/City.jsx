@@ -1,6 +1,6 @@
-import Container from 'react-bootstrap/Container';
+import { useEffect, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
-import { useEffect, useReducer, useState } from 'react';
+import Container from 'react-bootstrap/Container';
 import { fetchAllWeatherData } from '../utilities/fetchUtils/fetchWeather';
 import forecastReducer from '../common/reducers/forecastReducer';
 import errorMessages from '../common/messages/errorMessages';
@@ -8,7 +8,7 @@ import CityWeatherCard from '../components/current/CityWeatherCard';
 import fetchCityDataInitialState from '../common/reducers/initialState';
 import weatherReducer from '../common/reducers/weatherReducer copy';
 import ForecastCard from '../components/foreacast/ForeCastCard';
-import { Spinner } from 'react-bootstrap';
+import Spinner from 'react-bootstrap/Spinner';
 
 const City = () => {
   const { cityname } = useParams();

@@ -4,9 +4,7 @@ import Button from 'react-bootstrap/Button';
 import CityField from './CityField';
 import setFormInitial from '../../utilities/setFormInitial';
 import { useDispatch } from 'react-redux';
-import * as Yup from 'yup';
 import handleUpdateCities from '../../utilities/handleUpdateCities';
-import errorMessages from '../../common/messages/errorMessages';
 import validationSchema from '../../utilities/validationSchema';
 
 const CitiesForm = () => {

@@ -1,4 +1,6 @@
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
 import routes from '../../common/routes/routes';
 
 const Navigation = () => {

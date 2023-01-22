@@ -1,4 +1,5 @@
-import { Card, Table } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+import Table from 'react-bootstrap/Table';
 
 const ForecastTable = ({ data }) => {
   return (
