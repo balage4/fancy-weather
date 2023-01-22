@@ -14,23 +14,28 @@ export default class CityForecast {
     const kelvinLevel = 273.15;
 
     return this.data.list.map((day, dayIndex) => ({
-      name: this.getForecastDateOfMonth(dayIndex),
+      name: this.getForecastDateOfMonthLiteral(dayIndex),
       minTemp: roundToFloat(Number(day.temp.min - kelvinLevel)),
       maxTemp: roundToFloat(Number(day.temp.max - kelvinLevel)),
     }));
   }
 
-  getForecast() {
-    return {
-      temperatures: this.getTemperaturesForecast()
-    }
+
+  getCountedDateObject(dayCount) {
+    const date = new Date();
+    return new Date(date.setDate(date.getDate() + dayCount));
   }
 
-  getForecastDateOfMonth(dayCount) {
-    const date = new Date();
-    const countedDate = new Date(date.setDate(date.getDate() + dayCount));
-
+  getForecastDateOfMonthLiteral(dayCount) {
+    const countedDate = this.getCountedDateObject(dayCount);
     const month = months[countedDate.getMonth()];
     return `${month} ${countedDate.getDate()}.`;
   }
+
+  getForecast() {
+    return {
+      temperatures: this.getTemperaturesForecast(),
+    }
+  }
+
 }
