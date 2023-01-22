@@ -1,15 +1,23 @@
-import { Table } from 'react-bootstrap';
+import { Card, Table } from 'react-bootstrap';
 
-const ForecastTable = () => {
-  const days = 16;
-
+const ForecastTable = ({ data }) => {
   return (
-    <Table striped bordered hover>
-      <thead>
+    <Table responsive striped bordered hover size="md">
+      <tbody>
         <tr>
-          <td>Hello</td>
+          {data.map((day, index) => (
+            <td key={`dayForecast_${index}`}>
+              <Card className="center">
+                <Card.Body>
+                  <span>{day.monthName}</span>
+                  <Card.Title>{day.dateNumber}</Card.Title>
+                  <Card.Text>{day.weatherMain}</Card.Text>
+                </Card.Body>
+              </Card>
+            </td>
+          ))}
         </tr>
-      </thead>
+      </tbody>
     </Table>
   );
 };
