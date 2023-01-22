@@ -10,11 +10,23 @@ const ForecastCard = ({ forecastData }) => {
     <Container fluid="md">
       <Row>
         <Col>
-          {forecast && <TemperatureChart temperaturesData={forecast} />}
+          {forecast && (
+            <>
+              <h4>Temperature Diagram</h4>
+              <TemperatureChart temperaturesData={forecast} />
+            </>
+          )}
         </Col>
       </Row>
       <Row>
-        <Col sm="md">{forecast && <ForecastTable data={forecast} />}</Col>
+        <Col sm="md">
+          {forecast && (
+            <>
+              <h4>Daily Forecast</h4>
+              <ForecastTable data={forecast} />
+            </>
+          )}
+        </Col>
       </Row>
     </Container>
   );
