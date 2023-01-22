@@ -1,5 +1,5 @@
+import apiUrl from "../../utilities/fetchUtils/apiUrl";
 import roundToFloat from "../../utilities/roundToFloat";
-import twoDigits from "../../utilities/twoDigits";
 import months from "../date/months";
 
 export default class CityForecast {
@@ -10,7 +10,7 @@ export default class CityForecast {
     this.data = rawForecast;
   }
 
-  getTemperaturesForecast() {
+  getForecast() {
     const kelvinLevel = 273.15;
 
     return this.data.list.map((day, dayIndex) => {
@@ -25,7 +25,7 @@ export default class CityForecast {
         maxTemp: roundToFloat(Number(day.temp.max - kelvinLevel)),
         weatherMain: day.weather[0].main,
         weatherDescription: day.weather[0].description,
-        weatherIconId: day.weather.icon
+        weatherIconUrl: `${apiUrl.baseIconUrl}/${day.weather[0].icon}@2x.png`
       }
     })
   };
@@ -44,12 +44,6 @@ export default class CityForecast {
 
   getMonthAndDateLiteral({ month, countedDate }) {
     return `${month} ${countedDate}.`
-  }
-
-  getForecast() {
-    return {
-      temperatures: this.getTemperaturesForecast(),
-    }
   }
 
 }

@@ -7,18 +7,14 @@ const ForecastCard = ({ forecastData }) => {
   const forecast = new CityForecast(forecastData).getForecast();
   console.log(forecastData);
   return (
-    <Container fluid>
+    <Container fluid="md">
       <Row>
         <Col>
-          {forecast && (
-            <TemperatureChart temperaturesData={forecast.temperatures} />
-          )}
+          {forecast && <TemperatureChart temperaturesData={forecast} />}
         </Col>
       </Row>
       <Row>
-        <Col sm="md">
-          {forecast && <ForecastTable data={forecast.temperatures} />}
-        </Col>
+        <Col sm="md">{forecast && <ForecastTable data={forecast} />}</Col>
       </Row>
     </Container>
   );
