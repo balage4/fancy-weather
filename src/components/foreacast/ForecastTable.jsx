@@ -8,13 +8,13 @@ const ForecastTable = ({ data }) => {
         <tr>
           {data.map((day, index) => (
             <td key={`dayForecast_${index}`}>
-              <Card className="center" style={{ minWidth: '120px' }}>
-                <Card.Body>
+              <Card className="center" style={{ minWidth: '120' }}>
+                <Card.Body className="text-center">
                   <span>{day.name}</span>
                   <Card.Title>{day.dayTemp} °C</Card.Title>
                   <Card.Text>{day.weatherMain}</Card.Text>
                   <Card.Text>{day.weatherDescription}</Card.Text>
-                  <Card.Img variant="bottom" src={day.weatherIconUrl} />
+                  <Card.Img src={day.weatherIconUrl} />
                 </Card.Body>
               </Card>
             </td>
