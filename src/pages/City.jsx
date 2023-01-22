@@ -8,6 +8,7 @@ import CityWeatherCard from '../components/current/CityWeatherCard';
 import fetchCityDataInitialState from '../common/reducers/initialState';
 import weatherReducer from '../common/reducers/weatherReducer copy';
 import ForecastCard from '../components/foreacast/ForeCastCard';
+import { Spinner } from 'react-bootstrap';
 
 const City = () => {
   const { cityname } = useParams();
@@ -41,14 +42,23 @@ const City = () => {
     <>
       <Container>
         {weatherState.error && <p>{weatherState.data}</p>}
-        {weatherState.loading && <p>loading...</p>}
+        {weatherState.loading && (
+          <p>
+            loading...
+            <Spinner animation="border" variant="warning" />
+          </p>
+        )}
         {!weatherState.loading && !weatherState.error && (
           <CityWeatherCard weatherData={weatherState.data} />
         )}
       </Container>
       <Container>
         {forecastState.error && <p>{forecastState.data}</p>}
-        {forecastState.loading && <p>loading...</p>}
+        {forecastState.loading && (
+          <p>
+            loading... <Spinner animation="border" variant="info" />
+          </p>
+        )}
         {!forecastState.loading && !forecastState.error && (
           <ForecastCard forecastData={forecastState.data} />
         )}
