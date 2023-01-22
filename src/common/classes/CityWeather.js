@@ -1,5 +1,4 @@
 import apiUrl from "../../utilities/fetchUtils/apiUrl";
-import roundToFloat from "../../utilities/roundToFloat";
 import twoDigits from "../../utilities/twoDigits";
 
 export default class CityWeather {
@@ -12,11 +11,11 @@ export default class CityWeather {
 
   getTemperature() {
     const kelvinLevel = 273.15;
-    return roundToFloat(Number(this.data.main.temp) - kelvinLevel);
+    return Math.round(Number(this.data.main.temp) - kelvinLevel);
   }
 
   getWindSpeed() {
-    return roundToFloat(Number(this.data.wind.speed) * 3.6);
+    return Math.round(Number(this.data.wind.speed) * 3.6);
   }
 
   getWindDirection() {

@@ -1,5 +1,4 @@
 import apiUrl from "../../utilities/fetchUtils/apiUrl";
-import roundToFloat from "../../utilities/roundToFloat";
 import months from "../date/months";
 
 export default class CityForecast {
@@ -21,8 +20,9 @@ export default class CityForecast {
         name: this.getMonthAndDateLiteral(monthAndDate),
         monthName: monthAndDate.month,
         dateNumber: monthAndDate.countedDate,
-        minTemp: roundToFloat(Number(day.temp.min - kelvinLevel)),
-        maxTemp: roundToFloat(Number(day.temp.max - kelvinLevel)),
+        minTemp: Math.round(Number(day.temp.min - kelvinLevel)),
+        maxTemp: Math.round(Number(day.temp.max - kelvinLevel)),
+        dayTemp: Math.round(Number(day.temp.day) - kelvinLevel),
         weatherMain: day.weather[0].main,
         weatherDescription: day.weather[0].description,
         weatherIconUrl: `${apiUrl.baseIconUrl}/${day.weather[0].icon}@2x.png`
