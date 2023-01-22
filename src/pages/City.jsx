@@ -43,10 +43,7 @@ const City = () => {
       <Container>
         {weatherState.error && <p>{weatherState.data}</p>}
         {weatherState.loading && (
-          <p>
-            loading...
-            <Spinner animation="border" variant="warning" />
-          </p>
+          <Spinner animation="border" variant="warning" />
         )}
         {!weatherState.loading && !weatherState.error && (
           <CityWeatherCard weatherData={weatherState.data} />
@@ -54,11 +51,7 @@ const City = () => {
       </Container>
       <Container>
         {forecastState.error && <p>{forecastState.data}</p>}
-        {forecastState.loading && (
-          <p>
-            loading... <Spinner animation="border" variant="info" />
-          </p>
-        )}
+        {forecastState.loading && <Spinner animation="border" variant="info" />}
         {!forecastState.loading && !forecastState.error && (
           <ForecastCard forecastData={forecastState.data} />
         )}
