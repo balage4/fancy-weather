@@ -1,19 +1,26 @@
-import {
-  MDBCard,
-  MDBCardBody,
-  MDBCol,
-  MDBContainer,
-  MDBIcon,
-  MDBRow,
-  MDBTypography,
-} from 'mdb-react-ui-kit';
+import { Container, Row, Col } from 'react-bootstrap';
+import { useState } from 'react';
+import TemperatureChart from './TemperatureChart';
+import CityForecast from '../../common/classes/CityForecast';
 
 const ForecastCard = ({ forecastData }) => {
-  console.log(forecastData);
+  const forecast = new CityForecast(forecastData).getForecast();
+  console.log(forecast.temperatures);
   return (
-    <>
-      <p>{forecastData.city.name}</p>
-    </>
+    <Container fluid>
+      <Row>
+        {
+          <Col>
+            {forecast && (
+              <TemperatureChart temperaturesData={forecast.temperatures} />
+            )}
+          </Col>
+        }
+      </Row>
+      <Row>
+        <Col>Daily</Col>
+      </Row>
+    </Container>
   );
 };
 
