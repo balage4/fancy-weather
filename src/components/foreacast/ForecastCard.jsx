@@ -5,7 +5,7 @@ import CityForecast from '../../common/classes/CityForecast';
 
 const ForecastCard = ({ forecastData }) => {
   const forecast = new CityForecast(forecastData).getForecast();
-  console.log(forecast.temperatures);
+
   return (
     <Container fluid>
       <Row>
