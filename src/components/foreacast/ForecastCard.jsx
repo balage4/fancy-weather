@@ -7,7 +7,6 @@ import ForecastTable from './ForecastTable';
 
 const ForecastCard = ({ forecastData }) => {
   const forecast = new CityForecast(forecastData).getForecast();
-  console.log(forecastData);
   return (
     <Container fluid="md">
       <Row>
