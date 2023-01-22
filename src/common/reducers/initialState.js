@@ -1,7 +1,7 @@
-const fetchInitialState = {
+const fetchCityDataInitialState = {
   loading: true,
   data: null,
   error: false,
 };
 
-export default fetchInitialState;
+export default fetchCityDataInitialState;
