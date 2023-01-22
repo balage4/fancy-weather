@@ -13,12 +13,22 @@ export default class CityForecast {
   getTemperaturesForecast() {
     const kelvinLevel = 273.15;
 
-    return this.data.list.map((day, dayIndex) => ({
-      name: this.getForecastDateOfMonthLiteral(dayIndex),
-      minTemp: roundToFloat(Number(day.temp.min - kelvinLevel)),
-      maxTemp: roundToFloat(Number(day.temp.max - kelvinLevel)),
-    }));
-  }
+    return this.data.list.map((day, dayIndex) => {
+
+      const monthAndDate = this.getForecastMonthAndDate(dayIndex);
+
+      return {
+        name: this.getMonthAndDateLiteral(monthAndDate),
+        monthName: monthAndDate.month,
+        dateNumber: monthAndDate.countedDate,
+        minTemp: roundToFloat(Number(day.temp.min - kelvinLevel)),
+        maxTemp: roundToFloat(Number(day.temp.max - kelvinLevel)),
+        weatherMain: day.weather[0].main,
+        weatherDescription: day.weather[0].description,
+        weatherIconId: day.weather.icon
+      }
+    })
+  };
 
 
   getCountedDateObject(dayCount) {
@@ -26,10 +36,14 @@ export default class CityForecast {
     return new Date(date.setDate(date.getDate() + dayCount));
   }
 
-  getForecastDateOfMonthLiteral(dayCount) {
+  getForecastMonthAndDate(dayCount) {
     const countedDate = this.getCountedDateObject(dayCount);
     const month = months[countedDate.getMonth()];
-    return `${month} ${countedDate.getDate()}.`;
+    return { month, countedDate: countedDate.getDate() };
+  }
+
+  getMonthAndDateLiteral({ month, countedDate }) {
+    return `${month} ${countedDate}.`
   }
 
   getForecast() {
