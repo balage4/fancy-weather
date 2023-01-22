@@ -10,6 +10,7 @@ import {
 } from 'mdb-react-ui-kit';
 import CityWeather from '../../common/classes/CityWeather';
 import WindDirection from './WindDirection';
+import cardBackground from '../../assets/cardBackground.jpg';
 
 const CityWeatherCard = ({ weatherData }) => {
   const cityWeather = new CityWeather(weatherData).getAllWeatherData();
@@ -18,7 +19,13 @@ const CityWeatherCard = ({ weatherData }) => {
     <MDBContainer>
       <MDBRow className="justify-content-center align-items-center h-100">
         <MDBCol>
-          <MDBCard style={{ color: '#4B515D', borderRadius: '10px' }}>
+          <MDBCard
+            style={{
+              color: '#4B515D',
+              borderRadius: '10px',
+              backgroundImage: `url(${cardBackground})`,
+              backgroundSize: 'cover',
+            }}>
             <MDBCardBody className="p-4">
               <div className="d-flex">
                 <MDBTypography tag="h6" className="flex-grow-1">
