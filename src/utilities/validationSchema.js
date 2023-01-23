@@ -25,7 +25,7 @@ Yup.addMethod(Yup.object, 'uniqueProperty', function (propertyName, message) {
 const validationSchema = Yup.object({
   cityNamesArray: Yup.array().of(
     Yup.object()
-      .shape({ name: Yup.string() })
+      .shape({ name: Yup.string().required('Please fill in the required field!').matches(/^([^0-9]*)$/, 'Only letters you can use in this field!') })
       .uniqueProperty('name', errorMessages.uniqueStringRequired)
   ),
 });

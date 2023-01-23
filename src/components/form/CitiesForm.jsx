@@ -15,6 +15,8 @@ const CitiesForm = () => {
       initialValues={setFormInitial()}
       validationSchema={validationSchema}
       enableReinitialize={true}
+      validateOnChange
+      validateOnBlur
       onSubmit={(values, { resetForm }) => {
         handleUpdateCities(values, dispatch);
         resetForm();
