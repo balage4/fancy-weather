@@ -2,4 +2,27 @@
 
 .main-container {
   background: linear-gradient(0.25turn, #88bdd3, #ebf8e1, #fdc284);
+  height: auto;
+}
+
+#forecast-card {
+  background: none;
+}
+
+@media screen and (max-width: 992px) {
+  #sidebar-listgroup {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 90%vw;
+    border-radius: 0;
+    a {
+      margin: 4px;
+      padding: 8px;
+      border-radius: 8px;
+      min-width: 100px;
+      max-width: 110px;
+    }
+  }
 }

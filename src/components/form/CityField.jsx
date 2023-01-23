@@ -5,9 +5,9 @@ import { Field, ErrorMessage } from 'formik';
 
 const CityField = ({ remove, index }) => {
   return (
-    <Row className="mt-2">
+    <Row className="m-2 p-2 border border-dark rounded">
       <Col>
-        <label htmlFor={`cityNamesArray.${index}.name`}>
+        <label className="form-label" htmlFor={`cityNamesArray.${index}.name`}>
           {`${index + 1}. city`}
         </label>
 
@@ -20,11 +20,15 @@ const CityField = ({ remove, index }) => {
         <ErrorMessage
           name={`cityNamesArray.${index}.name`}
           component="div"
-          className="field-error"
+          className="field-error text-danger"
         />
       </Col>
-      <Col className="col">
-        <Button type="button" variant="danger" onClick={() => remove(index)}>
+      <Col className="align-self-center">
+        <Button
+          type="button"
+          className="m-2"
+          variant="danger"
+          onClick={() => remove(index)}>
           X
         </Button>
       </Col>

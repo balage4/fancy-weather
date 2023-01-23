@@ -12,11 +12,17 @@ const Layout = ({ children, sidebar }) => {
       style={styles.mainContainer}>
       <Navigation />
       <Container>
-        <Row style={styles.row}>
-          <Col className="mt-2" lg={styles.contentAreaRatio.col1}>
+        <Row style={styles.row} className="content-row">
+          <Col
+            className="mt-3 content-col"
+            lg={styles.mainColumns.col1.lg}
+            xs={styles.mainColumns.col1.xs}>
             {children}
           </Col>
-          <Col className="mt-2" lg={styles.contentAreaRatio.col2}>
+          <Col
+            className="mt-3 content-col"
+            lg={styles.mainColumns.col2.lg}
+            xs={styles.mainColumns.col2.xs}>
             {sidebar}
           </Col>
         </Row>

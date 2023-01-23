@@ -38,6 +38,7 @@ const CitiesForm = () => {
                   type="button"
                   disabled={values.cityNamesArray.length >= 10}
                   variant="info"
+                  className="m-2"
                   onClick={() => push({ name: '' })}>
                   Add City
                 </Button>

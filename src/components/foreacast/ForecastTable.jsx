@@ -7,7 +7,7 @@ const ForecastTable = ({ data }) => (
       <tr>
         {data.map((day, index) => (
           <td key={`dayForecast_${index}`}>
-            <Card style={{ minWidth: '120px' }}>
+            <Card style={{ minWidth: '120px' }} id="forecast-card">
               <Card.Body className="text-center">
                 <span>{day.name}</span>
                 <Card.Title>{day.dayTemp} °C</Card.Title>
