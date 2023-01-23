@@ -17,7 +17,7 @@ const CityWeatherCard = ({ weatherData }) => {
 
   return (
     <MDBContainer>
-      <MDBRow className="justify-content-center align-items-center h-100">
+      <MDBRow className="justify-content-center align-items-center h-50">
         <MDBCol>
           <MDBCard
             style={{
@@ -60,7 +60,7 @@ const CityWeatherCard = ({ weatherData }) => {
                       style={{ color: '#868B94' }}
                     />{' '}
                     <span className="ms-1">
-                      Wind speed: {cityWeather.windSpeed} km/h{' '}
+                      Wind speed: {cityWeather.windSpeed} km/h
                       {<WindDirection deg={cityWeather.windDirection} />}
                     </span>
                   </div>
@@ -69,7 +69,7 @@ const CityWeatherCard = ({ weatherData }) => {
                       fas
                       icon="tint fa-fw"
                       style={{ color: '#868B94' }}
-                    />{' '}
+                    />
                     <span className="ms-1">
                       Humidity: {cityWeather.humidity}%
                     </span>
@@ -80,10 +80,8 @@ const CityWeatherCard = ({ weatherData }) => {
                       fas
                       icon="sun fa-fw"
                       style={{ color: '#868B94' }}
-                    />{' '}
-                    <span className="ms-1">
-                      {/*  <WindDirection deg={cityWeather.windDirection} /> */}
-                    </span>
+                    />
+                    <span className="ms-1"></span>
                   </div>
                 </div>
                 <div>

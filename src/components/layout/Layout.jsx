@@ -2,20 +2,17 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Navigation from '../navigation/Navigation';
+import styles from '../../common/styles/layoutStyles';
 
 const Layout = ({ children, sidebar }) => {
-  const styles = {
-    contentAreaRatio: {
-      col1: 9,
-      col2: 3,
-    },
-  };
-
   return (
-    <Container className="main-container" fluid="md">
+    <Container
+      className="main-container"
+      fluid="md"
+      style={styles.mainContainer}>
       <Navigation />
       <Container>
-        <Row style={{ height: '100%', minHeight: window.innerHeight }}>
+        <Row style={styles.row}>
           <Col className="mt-2" lg={styles.contentAreaRatio.col1}>
             {children}
           </Col>
