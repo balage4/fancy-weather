@@ -16,6 +16,7 @@ const CityField = ({ remove, index }) => {
           placeholder="Budapest"
           type="text"
           className="form-control"
+          autoFocus
         />
         <ErrorMessage
           name={`cityNamesArray.${index}.name`}
