@@ -6,6 +6,7 @@ import setFormInitial from '../../utilities/setFormInitial';
 import { useDispatch } from 'react-redux';
 import handleUpdateCities from '../../utilities/handleUpdateCities';
 import validationSchema from '../../utilities/validationSchema';
+import FormHead from './FormHead';
 
 const CitiesForm = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const CitiesForm = () => {
       }}>
       {({ values }) => (
         <Form>
+          <FormHead arrayLength={values.cityNamesArray.length} />
           <FieldArray name="cityNamesArray">
             {({ remove, push }) => (
               <Container>
