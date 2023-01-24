@@ -7,9 +7,20 @@ import { useDispatch } from 'react-redux';
 import handleUpdateCities from '../../utilities/handleUpdateCities';
 import validationSchema from '../../utilities/validationSchema';
 import FormHead from './FormHead';
+import { useState } from 'react';
+import AlertAbsolute from '../layout/AlertAbsolute';
+import messages from '../../common/messages/messages';
 
 const CitiesForm = () => {
   const dispatch = useDispatch();
+  const [successSave, setSuccessSave] = useState(false);
+
+  const handleSuccessSaveAlert = () => {
+    setSuccessSave(true);
+    setTimeout(() => {
+      setSuccessSave(false);
+    }, 2500);
+  };
 
   return (
     <Formik
@@ -20,6 +31,7 @@ const CitiesForm = () => {
       validateOnBlur
       onSubmit={(values, { resetForm }) => {
         handleUpdateCities(values, dispatch);
+        handleSuccessSaveAlert();
         resetForm();
       }}>
       {({ values }) => (
@@ -50,6 +62,7 @@ const CitiesForm = () => {
           <Button variant="primary" type="submit">
             Save cities
           </Button>
+          {successSave && <AlertAbsolute message={messages.successSave} />}
         </Form>
       )}
     </Formik>
