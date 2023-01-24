@@ -10,7 +10,7 @@ const routes = [
   },
   {
     path: '/',
-    name: 'Home',
+    name: 'Form',
     element: Home,
     topMenu: true
   },
