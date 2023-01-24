@@ -10,7 +10,7 @@ const ForecastCard = ({ forecastData }) => {
   return (
     <Container fluid="md">
       <Row>
-        <Col>
+        <Col className="mt-3">
           {forecast && (
             <>
               <h4>Temperature Diagram</h4>
