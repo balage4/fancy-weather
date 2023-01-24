@@ -12,15 +12,15 @@ const Layout = ({ children, sidebar }) => {
       style={styles.mainContainer}>
       <Navigation />
       <Container>
-        <Row style={styles.row} className="content-row">
+        <Row style={styles.row}>
           <Col
-            className="mt-3 content-col"
+            className="mt-3"
             lg={styles.mainColumns.col1.lg}
             xs={styles.mainColumns.col1.xs}>
             {children}
           </Col>
           <Col
-            className="mt-3 content-col"
+            className="mt-3"
             lg={styles.mainColumns.col2.lg}
             xs={styles.mainColumns.col2.xs}>
             {sidebar}
