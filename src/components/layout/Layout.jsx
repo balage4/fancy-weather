@@ -11,7 +11,7 @@ const Layout = ({ children, sidebar }) => {
       fluid="md"
       style={styles.mainContainer}>
       <Navigation />
-      <Container>
+      <Container fluid="xs">
         <Row style={styles.row}>
           <Col
             className="mt-3"
