@@ -39,9 +39,9 @@ const CityWeatherCard = ({ weatherData }) => {
                 <img src={cityWeather.countryIconUrl} alt="" />
               </div>
 
-              <div className="d-flex flex-column text-center mt-5 mb-4">
+              <div className="d-flex flex-column text-center mt-2 mb-2">
                 <MDBTypography
-                  tag="h6"
+                  tag="h5"
                   className="display-4 mb-0 font-weight-bold"
                   style={{ color: '#1C2331' }}>
                   {`${cityWeather.temperature} °C`}
@@ -61,7 +61,7 @@ const CityWeatherCard = ({ weatherData }) => {
                     />{' '}
                     <span className="ms-1">
                       Wind speed: {cityWeather.windSpeed} km/h
-                      {<WindDirection deg={cityWeather.windDirection} />}
+                      <WindDirection deg={cityWeather.windDirection} />
                     </span>
                   </div>
                   <div>

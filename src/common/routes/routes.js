@@ -15,7 +15,7 @@ const routes = [
     topMenu: true
   },
   {
-    path: '*',
+    path: '/*',
     name: 'Home',
     element: Home,
     topMenu: false
