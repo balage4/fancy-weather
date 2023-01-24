@@ -1,4 +1,3 @@
-import { Container } from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 const ListOfCities = ({ cities }) => {

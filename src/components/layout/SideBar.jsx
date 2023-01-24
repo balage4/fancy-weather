@@ -4,7 +4,7 @@ import ListOfCities from '../sidebar/ListOfCities';
 const Sidebar = () => {
   const citiesStore = useSelector((state) => state.cities.value);
   return (
-    <>
+    <div className="sticky-head">
       {citiesStore.length === 0 && (
         <h4 className="text-center">There are not any saved places yet!</h4>
       )}
@@ -14,7 +14,7 @@ const Sidebar = () => {
           <ListOfCities cities={citiesStore} />
         </>
       )}
-    </>
+    </div>
   );
 };
 

@@ -9,16 +9,19 @@
   background: none;
 }
 
-#form-head {
+.sticky-head {
   position: sticky;
   top: 10%;
+}
+
+.form-head {
   padding: 7px;
   background: linear-gradient(0.15turn, #5bceff83, #ebf8e171, #ffa7646a);
   border-radius: 10px;
   &:hover {
     background: linear-gradient(0.15turn, #5bceff, #ebf8e1, #ffa764d4);
   }
-  transition: 0.5s;
+  transition: all 0.5s ease;
 }
 
 @media screen and (max-width: 992px) {
