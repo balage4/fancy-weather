@@ -7,11 +7,11 @@ const fetchWeather = async (weatherUrl) => {
   return weatherResponse;
 }
 
-export const fetchAllWeatherData = async (cityName) => {
+const fetchAllWeatherData = async (cityName) => {
   const weather = fetchWeather(apiUrl.currentWeatherUrl(cityName));
   const forecast = fetchWeather(apiUrl.forecastUrl(cityName));
   return await Promise.all([weather, forecast]).then(res => Promise.all(res.map(res => res.json())));
 
 }
 
-export default fetchWeather;
+export default fetchAllWeatherData;

@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import { fetchAllWeatherData } from '../utilities/fetchUtils/fetchWeather';
+import fetchAllWeatherData from '../utilities/fetchUtils/fetchWeather';
 import forecastReducer from '../common/reducers/forecastReducer';
 import CityWeatherCard from '../components/current/CityWeatherCard';
 import fetchCityDataInitialState from '../common/reducers/initialState';
