@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import { fetchAllWeatherData } from '../utilities/fetchUtils/fetchWeather';
 import forecastReducer from '../common/reducers/forecastReducer';
-import errorMessages from '../common/messages/errorMessages';
 import CityWeatherCard from '../components/current/CityWeatherCard';
 import fetchCityDataInitialState from '../common/reducers/initialState';
 import weatherReducer from '../common/reducers/weatherReducer';
@@ -12,6 +11,8 @@ import Spinner from 'react-bootstrap/Spinner';
 import handleValidCities from '../utilities/handleValidCities';
 import { useSelector } from 'react-redux';
 import AlertAbsolute from '../components/layout/AlertAbsolute';
+import handleResponses from '../common/responseHandlers/handleSuccessResponse';
+import handleFetchErrors from '../common/responseHandlers/handleFetchErrors';
 
 const City = () => {
   const navigate = useNavigate();
@@ -28,33 +29,13 @@ const City = () => {
     JSON.parse(JSON.stringify(fetchCityDataInitialState))
   );
 
-  const handleResponses = async (responseArray) => {
-    weatherDispatch({
-      type: 'success',
-      payload: responseArray[0],
-    });
-    forecastDispatch({
-      type: 'success',
-      payload: responseArray[1],
-    });
-  };
-
-  const handleFetchErrors = (err) => {
-    weatherDispatch({
-      type: 'error',
-      payload: errorMessages.fetchError,
-    });
-    forecastDispatch({
-      type: 'error',
-      payload: errorMessages.fetchError,
-    });
-  };
-
   useEffect(() => {
     handleValidCities(citiesStore, cityname, navigate);
     fetchAllWeatherData(cityname)
-      .then(handleResponses)
-      .catch(handleFetchErrors);
+      .then((res) => handleResponses(res, weatherDispatch, forecastDispatch))
+      .catch((res) =>
+        handleFetchErrors(res, weatherDispatch, forecastDispatch)
+      );
   }, [cityname]);
 
   return (
